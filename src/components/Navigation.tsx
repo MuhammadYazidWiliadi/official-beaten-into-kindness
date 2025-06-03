@@ -62,6 +62,14 @@ const Navigation = () => {
             >
               Galeri
             </Button>
+
+            <Button
+              onClick={() => navigate('/chapters')}
+              variant="ghost"
+              className="text-gray-300 hover:text-amber-400"
+            >
+              Chapters
+            </Button>
             
             {user ? (
               <div className="flex items-center space-x-4">
@@ -131,6 +139,14 @@ const Navigation = () => {
                 Galeri
               </Button>
               
+              <Button
+                onClick={() => { navigate('/chapters'); setIsMenuOpen(false); }}
+                variant="ghost"
+                className="text-gray-300 hover:text-amber-400 justify-start"
+              >
+                Chapters
+              </Button>
+
               {user ? (
                 <>
                   {isAdmin && (
