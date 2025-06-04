@@ -14,7 +14,7 @@ const ChaptersBanner = ({ totalChapters, totalViews }: ChaptersBannerProps) => {
       {/* Background Image */}
       <div className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden">
         <img
-          src="public/banner.png"
+          src="banner.png"
           alt="Novel Banner"
           className="w-full h-full object-cover"
         />
