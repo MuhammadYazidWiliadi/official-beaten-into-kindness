@@ -134,13 +134,12 @@ const Hero = () => {
         </motion.div>
 
         <motion.p
-          className="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          Sebuah perjalanan mendalam tentang transformasi jiwa melalui kebaikan yang dipaksakan,
-          hingga menjadi pilihan yang tulus dari dalam hati.
+          Sebuah perjalanan jiwa yang terlahir dari trauma, belajar mencintai dalam sepi, hingga menjelma menjadi cahaya bagi rumah yang dulu gelap.
         </motion.p>
 
         <motion.div
