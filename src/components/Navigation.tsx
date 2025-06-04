@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -7,23 +6,31 @@ import { Menu, X, User, LogOut, Shield } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 
+const NavItem = ({ label, onClick }: { label: string; onClick: () => void }) => (
+  <Button
+    onClick={onClick}
+    variant="ghost"
+    className="relative group text-gray-300 transition-all duration-300 ease-out hover:text-amber-400 hover:scale-105"
+  >
+    {label}
+    <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+  </Button>
+);
+
 const Navigation = () => {
   const navigate = useNavigate();
   const { user, signOut } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Check if user is admin
   const { data: isAdmin = false } = useQuery({
     queryKey: ['user-role', user?.id],
     queryFn: async () => {
       if (!user) return false;
-      
       const { data, error } = await supabase
         .from('profiles')
         .select('role')
         .eq('id', user.id)
         .single();
-      
       if (error) return false;
       return data?.role === 'admin';
     },
@@ -39,7 +46,7 @@ const Navigation = () => {
     <nav className="bg-gray-900/95 backdrop-blur-sm border-b border-amber-400/20 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <h1 
+          <h1
             onClick={() => navigate('/')}
             className="text-2xl font-bold bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-600 bg-clip-text text-transparent cursor-pointer"
           >
@@ -48,29 +55,10 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <Button
-              onClick={() => navigate('/')}
-              variant="ghost"
-              className="text-gray-300 hover:text-amber-400"
-            >
-              Beranda
-            </Button>
-            <Button
-              onClick={() => navigate('/gallery')}
-              variant="ghost"
-              className="text-gray-300 hover:text-amber-400"
-            >
-              Galeri
-            </Button>
+            <NavItem label="Beranda" onClick={() => navigate('/')} />
+            <NavItem label="Galeri" onClick={() => navigate('/gallery')} />
+            <NavItem label="Chapters" onClick={() => navigate('/chapters')} />
 
-            <Button
-              onClick={() => navigate('/chapters')}
-              variant="ghost"
-              className="text-gray-300 hover:text-amber-400"
-            >
-              Chapters
-            </Button>
-            
             {user ? (
               <div className="flex items-center space-x-4">
                 {isAdmin && (
@@ -83,14 +71,7 @@ const Navigation = () => {
                     Admin
                   </Button>
                 )}
-                <Button
-                  onClick={() => navigate('/profile')}
-                  variant="ghost"
-                  className="text-gray-300 hover:text-amber-400"
-                >
-                  <User className="w-4 h-4 mr-2" />
-                  Profil
-                </Button>
+                <NavItem label="Profil" onClick={() => navigate('/profile')} />
                 <Button
                   onClick={handleSignOut}
                   variant="outline"
@@ -124,28 +105,9 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-amber-400/20 pt-4">
             <div className="flex flex-col space-y-3">
-              <Button
-                onClick={() => { navigate('/'); setIsMenuOpen(false); }}
-                variant="ghost"
-                className="text-gray-300 hover:text-amber-400 justify-start"
-              >
-                Beranda
-              </Button>
-              <Button
-                onClick={() => { navigate('/gallery'); setIsMenuOpen(false); }}
-                variant="ghost"
-                className="text-gray-300 hover:text-amber-400 justify-start"
-              >
-                Galeri
-              </Button>
-              
-              <Button
-                onClick={() => { navigate('/chapters'); setIsMenuOpen(false); }}
-                variant="ghost"
-                className="text-gray-300 hover:text-amber-400 justify-start"
-              >
-                Chapters
-              </Button>
+              <NavItem label="Beranda" onClick={() => { navigate('/'); setIsMenuOpen(false); }} />
+              <NavItem label="Galeri" onClick={() => { navigate('/gallery'); setIsMenuOpen(false); }} />
+              <NavItem label="Chapters" onClick={() => { navigate('/chapters'); setIsMenuOpen(false); }} />
 
               {user ? (
                 <>
@@ -159,14 +121,7 @@ const Navigation = () => {
                       Admin
                     </Button>
                   )}
-                  <Button
-                    onClick={() => { navigate('/profile'); setIsMenuOpen(false); }}
-                    variant="ghost"
-                    className="text-gray-300 hover:text-amber-400 justify-start"
-                  >
-                    <User className="w-4 h-4 mr-2" />
-                    Profil
-                  </Button>
+                  <NavItem label="Profil" onClick={() => { navigate('/profile'); setIsMenuOpen(false); }} />
                   <Button
                     onClick={() => { handleSignOut(); setIsMenuOpen(false); }}
                     variant="outline"

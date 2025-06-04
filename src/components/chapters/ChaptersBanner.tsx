@@ -14,7 +14,7 @@ const ChaptersBanner = ({ totalChapters, totalViews }: ChaptersBannerProps) => {
       {/* Background Image */}
       <div className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden">
         <img
-          src="https://plus.unsplash.com/premium_photo-1688429242589-7a0b8e7349a4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="public/banner.png"
           alt="Novel Banner"
           className="w-full h-full object-cover"
         />
@@ -30,7 +30,7 @@ const ChaptersBanner = ({ totalChapters, totalViews }: ChaptersBannerProps) => {
               Drama
             </Badge>
             <Badge className="bg-amber-600 text-white text-xs px-3 py-1">
-              Transformasi
+              Slice Of Life
             </Badge>
             <Badge className="bg-blue-600 text-white text-xs px-3 py-1">
               Psikologi
@@ -39,13 +39,13 @@ const ChaptersBanner = ({ totalChapters, totalViews }: ChaptersBannerProps) => {
 
           {/* Title */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3">
-            Perjalanan Maya
+            Beaten Into Kindness
           </h1>
 
           {/* Synopsis */}
           <p className="text-gray-200 text-sm sm:text-base md:text-lg leading-relaxed mb-6 max-w-3xl">
-            Ikuti perjalanan transformasi Maya, seorang wanita muda yang menemukan kekuatan dalam dirinya 
-            melalui berbagai tantangan hidup. Sebuah cerita tentang pertumbuhan, keberanian, dan penemuan jati diri.
+            Ikuti kisah Yuwan Maitra, kakak sulung yang jadi cahaya di rumah penuh luka.
+            Dari trauma ia belajar mencinta, memberi, dan membangun rumah yang tak pernah ia miliki.
           </p>
 
           {/* Stats and Credits */}
@@ -60,7 +60,7 @@ const ChaptersBanner = ({ totalChapters, totalViews }: ChaptersBannerProps) => {
             </div>
             <div className="flex items-center gap-2 text-green-400">
               <User className="w-4 h-4" />
-              <span>Admin</span>
+              <span>Vlaychowski</span>
             </div>
             <div className="flex items-center gap-2 text-purple-400">
               <Palette className="w-4 h-4" />
