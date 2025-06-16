@@ -73,3 +73,4 @@ const ChaptersBanner = ({ totalChapters, totalViews }: ChaptersBannerProps) => {
 };
 
 export default ChaptersBanner;
+  

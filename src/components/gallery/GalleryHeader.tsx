@@ -8,7 +8,7 @@ const GalleryHeader = () => {
             Galeri Ilustrasi
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Koleksi ilustrasi yang menggambarkan perjalanan emosional dan transformasi Maya
+            Koleksi ilustrasi yang menggambarkan perjalanan emosional dan transformasi Yuwan
           </p>
         </div>
       </div>

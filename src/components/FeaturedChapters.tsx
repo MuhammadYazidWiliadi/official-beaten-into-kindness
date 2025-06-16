@@ -65,7 +65,7 @@ const FeaturedChapters = () => {
             Bab Pilihan
           </h2>
           <p className="text-gray-300 text-sm sm:text-lg max-w-2xl mx-auto">
-            Temukan momen-momen penting dalam perjalanan transformasi Maya
+            Temukan momen-momen penting dalam perjalanan transformasi Yuwan
           </p>
         </div>
 
